@@ -1,14 +1,9 @@
-const mongoose = require('mongoose');
-const connectDB = async () => {
-    try {
-        mongoose.connect(process.env.MONGO_URL, err => {
-            if (err) throw err;
-            console.log('connected to MongoDB')
-        });
-    } catch (error) {
-        console.error(`Error: ${error.message}`);
-        process.exit();
-    }
-};
+var mongoose = require ('mongoose');
 
-module.exports = connectDB;
+
+mongoose.Promise = global.Promise;
+
+//change the database with yours
+mongoose.connect("mongodb+srv://viswakanth17:L9YAEttbaiiOwmDY@cluster0.qfy3xik.mongodb.net/?retryWrites=true&w=majority");
+
+module.exports = {mongoose};
